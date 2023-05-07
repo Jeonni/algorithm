@@ -19,12 +19,12 @@ class Person {
     }
 }
 
-public class Main{
+public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
-
-        List<Person> persionList = new ArrayList<>();
+        
+        List<Person> list = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
             String[] input = br.readLine().split(" ");
@@ -32,16 +32,15 @@ public class Main{
             int day = Integer.parseInt(input[1]);
             int month = Integer.parseInt(input[2]);
             int year = Integer.parseInt(input[3]);
-
-            persionList.add(new Person(name, day, month, year));
+            
+            list.add(new Person(name, day, month, year));
         }
-
-        persionList.sort(Comparator.comparing((Person p) -> p.year)
+       
+        list.sort(Comparator.comparing((Person p) -> p.year)
                 .thenComparing(p -> p.month)
                 .thenComparing(p -> p.day));
 
-
-        System.out.println(persionList.get(persionList.size() - 1).name);
-        System.out.println(persionList.get(0).name);
+        System.out.println(list.get(list.size() - 1).name);
+        System.out.println(list.get(0).name);
     }
 }
