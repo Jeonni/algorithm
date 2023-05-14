@@ -16,23 +16,26 @@ public class Main {
 
         Stack<Integer> stack = new Stack<>();
 
-        int stackNum = 1; 
+        int stackNum = 1;
 
         for (int i = 0; i < n; i++) {
-            while (stackNum <= list[i]) { 
-                stack.push(stackNum); 
+            while (stackNum <= list[i]) {
+                stack.push(stackNum);
                 sb.append("+\n");
-                stackNum++; 
+                stackNum++;
             }
-            if(stack.peek() == list[i]){ 
-                stack.pop();
+            if (stack.peek() == list[i]) { 
+                stack.pop(); 
                 sb.append("-\n");
-            }else{
-                System.out.println("NO");
-                return;
             }
         }
-        bw.write(sb.toString());
+
+        if (stack.isEmpty()) {
+            bw.write(sb.toString());
+        } else {
+            bw.write("NO");
+        }
+
         br.close();
         bw.close();
     }
